@@ -1,0 +1,5 @@
+FROM alpine
+RUN apk add --no-cache wget tar openjdk8  && mkdir /opt/tom  && mkdir /opt/tomcat && wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.58/bin/apache-tomcat-8.5.58.tar.gz && tar xvf apache-tomcat-*tar.gz -C /opt/tomcat --strip-components=1 && chmod -R 777 /opt/tomcat
+RUN rm -rf /opt/git/boxfuse-sample-java-war-hello/ && rm -rf apache-tomcat-*tar.gz
+EXPOSE 8080
+ENTRYPOINT ["/opt/tomcat/bin/catalina.sh", "run"]
