@@ -1,12 +1,12 @@
 version: '3.5'
-
+services:
   maven:
-    build: mvn
+    build: ./mvn
     volumes:
       - data:/webapps
 
   tomcat:
-    build: tom
+    build: ./tom
     image: mytomcat
     ports:
       - "8888:8080"
