@@ -3,7 +3,7 @@ services:
   maven:
     build: ./mvn
     volumes:
-      - data:/webapps
+      - app:/webapps
 
   tomcat:
     build: ./tom
