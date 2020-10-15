@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage ('git') {
+            steps {
+                git 'https://github.com/integrator-sev/jenkins.git'
+            }
+        }
+        stage ('compose') {
+            steps {
+                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+                
+            }
+        }
+    }
+
+    
+}
